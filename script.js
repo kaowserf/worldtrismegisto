@@ -178,39 +178,96 @@ function addParticleStyles() {
 
 // Mobile Menu Toggle - Improved version
 function toggleMobileMenu() {
-    navLinks.classList.toggle('active');
+    const mainNav = document.querySelector('.main-nav');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (!mobileMenu) {
+        // Create mobile menu if it doesn't exist
+        createMobileMenu();
+        return;
+    }
+    
+    mainNav.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
     
     // Toggle icon between bars and X
-    if (navLinks.classList.contains('active')) {
+    if (mobileMenu.classList.contains('active')) {
         mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
     } else {
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
     }
 }
 
+// Create mobile menu dynamically
+function createMobileMenu() {
+    const mainNav = document.querySelector('.main-nav');
+    const leftLinks = document.querySelector('.left-links');
+    const rightLinks = document.querySelector('.right-links');
+    
+    // Create mobile menu container
+    const mobileMenu = document.createElement('div');
+    mobileMenu.classList.add('mobile-menu');
+    document.body.appendChild(mobileMenu);
+    
+    // Clone navigation links for mobile menu
+    if (leftLinks) {
+        const leftLinkItems = leftLinks.querySelectorAll('a, .dropdown');
+        leftLinkItems.forEach(item => {
+            const clonedItem = item.cloneNode(true);
+            mobileMenu.appendChild(clonedItem);
+        });
+    }
+    
+    if (rightLinks) {
+        const rightLinkItems = rightLinks.querySelectorAll('a');
+        rightLinkItems.forEach(item => {
+            const clonedItem = item.cloneNode(true);
+            mobileMenu.appendChild(clonedItem);
+        });
+    }
+    
+    // Initialize dropdowns in mobile menu
+    initMobileDropdowns(mobileMenu);
+    
+    // Toggle mobile menu after creation
+    toggleMobileMenu();
+}
+
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
-    const isMenuOpen = navLinks.classList.contains('active');
-    const isClickInsideMenu = navLinks.contains(event.target);
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (!mobileMenu) return;
+    
+    const mainNav = document.querySelector('.main-nav');
+    const isMenuOpen = mobileMenu.classList.contains('active');
+    const isClickInsideMenu = mobileMenu.contains(event.target);
     const isClickOnMenuButton = mobileMenuBtn.contains(event.target);
     
     if (isMenuOpen && !isClickInsideMenu && !isClickOnMenuButton) {
-        navLinks.classList.remove('active');
+        mainNav.classList.remove('active');
+        mobileMenu.classList.remove('active');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
     }
 });
 
 // Close mobile menu when window is resized to desktop size
 window.addEventListener('resize', function() {
-    if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (!mobileMenu) return;
+    
+    const mainNav = document.querySelector('.main-nav');
+    
+    if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+        mainNav.classList.remove('active');
+        mobileMenu.classList.remove('active');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
     }
 });
 
 // Dropdown functionality for mobile
-function initMobileDropdowns() {
-    const dropdowns = document.querySelectorAll('.dropdown');
+function initMobileDropdowns(menuContainer) {
+    const container = menuContainer || document;
+    const dropdowns = container.querySelectorAll('.dropdown');
     
     dropdowns.forEach(dropdown => {
         const trigger = dropdown.querySelector('a');
