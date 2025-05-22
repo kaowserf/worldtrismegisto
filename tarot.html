@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Tarot Reading | World Trismegisto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="e-commerce.css">
+    <link rel="stylesheet" href="tarot.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Add custom styles to fix the columns as silhouette backgrounds */
+        .decorative-column {
+            position: fixed;
+            top: 0;
+            height: 100vh;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.25;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left-column {
+            left: 20%;
+        }
+        .right-column {
+            right: 20%;
+        }
+        .decorative-column img {
+            height: auto;
+            max-height: 80vh;
+            width: auto;
+            max-width: 100px;
+            object-fit: contain;
+            filter: contrast(0.8) brightness(0.6);
+        }
+        .column-candle {
+            display: none;
+        }
+        
+        /* Adjust temple pillars to complement columns */
+        .temple-pillars {
+            position: fixed;
+            top: 0;
+            height: 100%;
+            width: 40px;
+            background: linear-gradient(to right, rgba(193, 161, 98, 0.08), rgba(193, 161, 98, 0.15), rgba(193, 161, 98, 0.08));
+            box-shadow: 0 0 15px rgba(193, 161, 98, 0.15);
+            z-index: 0;
+            opacity: 0.4;
+        }
+        .temple-pillars.left {
+            left: 35%;
+        }
+        .temple-pillars.right {
+            right: 35%;
+        }
+        
+        @media (max-width: 992px) {
+            .left-column {
+                left: 10%;
+            }
+            .right-column {
+                right: 10%;
+            }
+            .temple-pillars.left {
+                left: 25%;
+            }
+            .temple-pillars.right {
+                right: 25%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .left-column {
+                left: 5%;
+            }
+            .right-column {
+                right: 5%;
+            }
+            .temple-pillars.left {
+                left: 15%;
+            }
+            .temple-pillars.right {
+                right: 15%;
+            }
+        }
+    </style>
+</head>
+<body class="tarot-body">
+    <!-- Decorative Columns -->
+    <div class="decorative-column left-column">
+        <img src="Colam/red colam.png" alt="Red Ancient Column with Mystical Sphere">
+    </div>
+    <div class="decorative-column right-column">
+        <img src="Colam/black colam.png" alt="Black Ancient Column with Globe">
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="card logo finall.png" alt="Mystic Threads Logo" class="nav-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="shop.html">Categories <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="shop.html?category=men"><i class="fas fa-mars category-icon"></i>Men</a>
+                    <a href="shop.html?category=women"><i class="fas fa-venus category-icon"></i>Women</a>
+                    <a href="tarot.html"><i class="fas fa-star category-icon"></i>Tarot Reading</a>
+                </div>
+            </div>
+            <a href="shop.html">Shop</a>
+            <a href="tarot.html" class="active">Tarot Reading</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="cart-account">
+            <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <!-- Tarot Temple Environment -->
+        <div class="tarot-environment">
+            <div class="particles-container" id="particles"></div>
+            <div class="temple-pillars left"></div>
+            <div class="temple-pillars right"></div>
+            <div class="temple-ceiling"></div>
+            <div class="temple-floor"></div>
+            
+            <!-- Smoke Animation -->
+            <div class="smoke-container">
+                <div class="smoke smoke1"></div>
+                <div class="smoke smoke2"></div>
+                <div class="smoke smoke3"></div>
+            </div>
+            
+            <!-- Candles -->
+            <div class="candle left">
+                <div class="flame"></div>
+            </div>
+            <div class="candle right">
+                <div class="flame"></div>
+            </div>
+            
+            <!-- Tarot Reader Section -->
+            <div class="tarot-reader-section">
+                <div class="tarot-intro" id="tarot-intro">
+                    <h1>Welcome to the Temple of Tarot</h1>
+                    <p>Let the cards reveal your spiritual path and guide you to the designs that resonate with your energy.</p>
+                    <button id="begin-reading-btn" class="tarot-btn">Begin Your Reading</button>
+                </div>
+                
+                <div class="tarot-reading-area" id="tarot-reading-area">
+                    <!-- Main Card Display -->
+                    <div class="main-card-holder">
+                        <img src="22 Card/Main card.jpeg" alt="Main Tarot Card" class="main-card">
+                    </div>
+                    
+                    <!-- Secondary Cards on Table -->
+                    <div class="tarot-table">
+                        <div class="secondary-card-container">
+                            <!-- Cards will be generated dynamically by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Card Selection Arrows -->
+                    <div class="card-navigation">
+                        <button id="prev-cards" class="nav-arrow"><i class="fas fa-chevron-left"></i></button>
+                        <button id="next-cards" class="nav-arrow"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Card Detail Popup -->
+                <div class="card-detail-overlay" id="card-detail-overlay">
+                    <div class="card-detail-container">
+                        <button class="close-detail-btn" id="close-detail-btn">&times;</button>
+                        
+                        <div class="card-detail-content">
+                            <div class="card-image-large">
+                                <img id="detail-card-image" src="" alt="Tarot Card Detail">
+                            </div>
+                            
+                            <div class="card-meaning">
+                                <h2 id="detail-card-title">Card Title</h2>
+                                <div class="meaning-section">
+                                    <h3>Meaning</h3>
+                                    <p id="detail-card-meaning">Card meaning text goes here.</p>
+                                </div>
+                                
+                                <div class="reading-section">
+                                    <h3>Your Reading</h3>
+                                    <p id="detail-card-reading">Your personal tarot reading will appear here.</p>
+                                </div>
+                                
+                                <a href="#" class="buy-card-btn" id="buy-card-btn">Buy This Design</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Related Designs Section -->
+        <section class="related-designs">
+            <h2>Designs Inspired by Your Reading</h2>
+            <div class="product-grid">
+                <!-- Products will be dynamically loaded based on card selection -->
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>World Trismegisto</h3>
+                <p>Spiritual apparel that connects you to your inner essence.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=tshirts">T-Shirts</a></li>
+                    <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+                    <li><a href="shop.html?category=accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="shipping.html">Shipping & Returns</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="size-guide.html">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="terms.html">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 World Trismegisto. All rights reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="e-commerce.js"></script>
+    <script src="tarot.js"></script>
+</body>
+</html> 

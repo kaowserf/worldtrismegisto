@@ -1,0 +1,431 @@
+/* Shop CSS Styles - Mystic Threads 
+---------------------------------
+Colors:
+- Charcoal Black: #1C1C1C
+- Sand Beige: #DDD0C8
+- Muted Gold: #C1A162
+- Bone White: #F9F6EE
+---------------------------------
+*/
+
+/* Shop Header
+------------------------------- */
+.shop-header {
+    background: linear-gradient(rgba(28, 28, 28, 0.85), rgba(28, 28, 28, 0.85)), 
+                url('22 Card/22.jpeg') center/cover no-repeat;
+    padding: 120px 0;
+    text-align: center;
+    color: #F9F6EE;
+    margin-bottom: 2rem;
+}
+
+.shop-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.shop-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.shop-header p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Filter Bar
+------------------------------- */
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: #F9F6EE;
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.filter-container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-weight: 500;
+    color: #1C1C1C;
+}
+
+.filter-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #DDD0C8;
+    border-radius: 4px;
+    background-color: white;
+    color: #1C1C1C;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-select:hover {
+    border-color: #C1A162;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+#product-search {
+    padding: 0.5rem 1rem;
+    border: 1px solid #DDD0C8;
+    border-radius: 4px 0 0 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    width: 250px;
+}
+
+#search-btn {
+    background-color: #C1A162;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-btn:hover {
+    background-color: #aa8c50;
+}
+
+/* Products Section
+------------------------------- */
+.products-section {
+    padding: 0 1.5rem 3rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: #F9F6EE;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.product-image {
+    position: relative;
+    width: 100%;
+    padding-bottom: 120%; /* Creates a slightly taller aspect ratio for product images */
+    overflow: hidden;
+    background-color: rgba(249, 246, 238, 0.05); /* Light background color */
+}
+
+.product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Use cover for better filling */
+    object-position: center top; /* Position from the top for better product visibility */
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(28, 28, 28, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    background-color: #F9F6EE;
+    color: #1C1C1C;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+}
+
+.view-btn:hover {
+    background-color: #C1A162;
+    color: #F9F6EE;
+}
+
+.product-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #1C1C1C;
+    margin: 1rem 1rem 0.5rem;
+    font-size: 1.25rem;
+}
+
+.price {
+    color: #C1A162;
+    font-size: 1.1rem;
+    margin: 0 1rem 0.5rem;
+    font-weight: 600;
+}
+
+.add-to-cart {
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 0.5rem 1rem 1rem;
+    padding: 0.75rem 0;
+    background-color: #1C1C1C;
+    color: #F9F6EE;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: #C1A162;
+}
+
+/* Pagination
+------------------------------- */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 3rem 0;
+}
+
+.pagination-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9F6EE;
+    border: 1px solid #DDD0C8;
+    border-radius: 4px;
+    color: #1C1C1C;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover,
+.pagination-btn.active {
+    background-color: #C1A162;
+    color: #F9F6EE;
+    border-color: #C1A162;
+}
+
+/* Tarot Banner in Shop Page
+------------------------------- */
+.tarot-banner {
+    background: linear-gradient(rgba(28, 28, 28, 0.7), rgba(28, 28, 28, 0.7)), 
+                url('22 Card/0.jpeg') center/cover no-repeat;
+    padding: 6rem 1.5rem;
+    text-align: center;
+    color: #F9F6EE;
+    margin: 4rem 0;
+}
+
+.tarot-banner-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tarot-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.tarot-banner p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.tarot-cta-btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background-color: #C1A162;
+    color: #F9F6EE;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.tarot-cta-btn:hover {
+    background-color: #F9F6EE;
+    color: #1C1C1C;
+}
+
+/* Added to Cart Animation
+------------------------------- */
+.added-to-cart-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #1C1C1C;
+    color: #F9F6EE;
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(150%);
+    transition: transform 0.5s ease;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.added-to-cart-message.show {
+    transform: translateX(0);
+}
+
+.added-to-cart-message i {
+    color: #C1A162;
+    margin-right: 0.5rem;
+}
+
+/* Responsive Design
+------------------------------- */
+@media (max-width: 992px) {
+    .shop-header h1 {
+        font-size: 3rem;
+    }
+    
+    .filter-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-container {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .search-bar {
+        width: 100%;
+    }
+    
+    #product-search {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .shop-header {
+        padding: 80px 0;
+    }
+    
+    .shop-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .filter-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .filter-select {
+        width: 100%;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    
+    .tarot-banner h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .shop-header h1 {
+        font-size: 2rem;
+    }
+    
+    .shop-header p {
+        font-size: 1rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    /* Make sure product images maintain proper aspect ratio */
+    .product-image {
+        padding-bottom: 120%; /* Maintain the taller aspect ratio */
+    }
+    
+    .tarot-banner {
+        padding: 4rem 1rem;
+    }
+    
+    .tarot-banner h2 {
+        font-size: 1.75rem;
+    }
+    
+    .tarot-banner p {
+        font-size: 1rem;
+    }
+} 

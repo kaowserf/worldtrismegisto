@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shop - World Trismegisto | Spiritual Apparel & Tarot</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="e-commerce.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="card logo finall.png" alt="World Trismegisto Logo" class="nav-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="shop.html">Categories <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="shop.html?category=men"><i class="fas fa-mars category-icon"></i>Men</a>
+                    <a href="shop.html?category=women"><i class="fas fa-venus category-icon"></i>Women</a>
+                    <a href="tarot.html"><i class="fas fa-star category-icon"></i>Tarot Reading</a>
+                </div>
+            </div>
+            <a href="shop.html" class="active">Shop</a>
+            <a href="tarot.html">Tarot Reading</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="cart-account">
+            <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    
+    <!-- Shop Header -->
+    <header class="shop-header">
+        <div class="shop-header-content">
+            <h1>Mystical Apparel Collection</h1>
+            <p>Discover clothing that connects you to your spiritual essence</p>
+        </div>
+    </header>
+    
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <div class="filter-container">
+            <div class="filter-group">
+                <label for="category-filter">Category:</label>
+                <select id="category-filter" class="filter-select">
+                    <option value="all">All Products</option>
+                    <option value="tshirt">T-Shirts</option>
+                    <option value="hoodie">Hoodies</option>
+                    <option value="tank">Tank Tops</option>
+                    <option value="longsleeve">Long Sleeves</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="sort-filter">Sort By:</label>
+                <select id="sort-filter" class="filter-select">
+                    <option value="featured">Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name-az">Name: A to Z</option>
+                    <option value="name-za">Name: Z to A</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="product-search" placeholder="Search products...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+    
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card" data-category="tshirt">
+                <div class="product-image">
+                    <img src="Productimage/productimage (1).jpeg" alt="Mystical Threads T-Shirt">
+                    <div class="product-overlay">
+                        <a href="product.html?id=1" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Seeker T-Shirt</h3>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card" data-category="hoodie">
+                <div class="product-image">
+                    <img src="Productimage/productimage (2).jpeg" alt="Mystical Threads Hoodie">
+                    <div class="product-overlay">
+                        <a href="product.html?id=2" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Flame Hoodie</h3>
+                <p class="price">$59.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card" data-category="tank">
+                <div class="product-image">
+                    <img src="Productimage/productimage (3).jpeg" alt="Mystical Threads Tank Top">
+                    <div class="product-overlay">
+                        <a href="product.html?id=3" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Mirror Tank Top</h3>
+                <p class="price">$29.95</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card" data-category="longsleeve">
+                <div class="product-image">
+                    <img src="Productimage/productimage (4).jpeg" alt="Mystical Threads Long Sleeve">
+                    <div class="product-overlay">
+                        <a href="product.html?id=4" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Vessel Long Sleeve</h3>
+                <p class="price">$42.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card" data-category="tshirt">
+                <div class="product-image">
+                    <img src="Productimage/productimage (5).jpeg" alt="Mystical Threads T-Shirt">
+                    <div class="product-overlay">
+                        <a href="product.html?id=5" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The High Priestess T-Shirt</h3>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card" data-category="hoodie">
+                <div class="product-image">
+                    <img src="Productimage/productimage (6).jpeg" alt="Mystical Threads Hoodie">
+                    <div class="product-overlay">
+                        <a href="product.html?id=6" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Empress Hoodie</h3>
+                <p class="price">$59.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card" data-category="tank">
+                <div class="product-image">
+                    <img src="Productimage/productimage (7).jpeg" alt="Mystical Threads Tank Top">
+                    <div class="product-overlay">
+                        <a href="product.html?id=7" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Emperor Tank Top</h3>
+                <p class="price">$29.95</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card" data-category="longsleeve">
+                <div class="product-image">
+                    <img src="Productimage/productimage (8).jpeg" alt="Mystical Threads Long Sleeve">
+                    <div class="product-overlay">
+                        <a href="product.html?id=8" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Hierophant Long Sleeve</h3>
+                <p class="price">$42.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 9 -->
+            <div class="product-card" data-category="tshirt">
+                <div class="product-image">
+                    <img src="Productimage/productimage (9).jpeg" alt="Mystical Threads T-Shirt">
+                    <div class="product-overlay">
+                        <a href="product.html?id=9" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Lovers T-Shirt</h3>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 10 -->
+            <div class="product-card" data-category="hoodie">
+                <div class="product-image">
+                    <img src="Productimage/productimage (10).jpeg" alt="Mystical Threads Hoodie">
+                    <div class="product-overlay">
+                        <a href="product.html?id=10" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Chariot Hoodie</h3>
+                <p class="price">$59.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 11 -->
+            <div class="product-card" data-category="tank">
+                <div class="product-image">
+                    <img src="Productimage/productimage (11).jpeg" alt="Mystical Threads Tank Top">
+                    <div class="product-overlay">
+                        <a href="product.html?id=11" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>Strength Tank Top</h3>
+                <p class="price">$29.95</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 12 -->
+            <div class="product-card" data-category="longsleeve">
+                <div class="product-image">
+                    <img src="Productimage/productimage (12).jpeg" alt="Mystical Threads Long Sleeve">
+                    <div class="product-overlay">
+                        <a href="product.html?id=12" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Hermit Long Sleeve</h3>
+                <p class="price">$42.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 13 -->
+            <div class="product-card" data-category="tshirt">
+                <div class="product-image">
+                    <img src="Productimage/productimage (13).jpeg" alt="Mystical Threads T-Shirt">
+                    <div class="product-overlay">
+                        <a href="product.html?id=13" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>Wheel of Fortune T-Shirt</h3>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 14 -->
+            <div class="product-card" data-category="hoodie">
+                <div class="product-image">
+                    <img src="Productimage/productimage (14).jpeg" alt="Mystical Threads Hoodie">
+                    <div class="product-overlay">
+                        <a href="product.html?id=14" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>Justice Hoodie</h3>
+                <p class="price">$59.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 15 -->
+            <div class="product-card" data-category="tank">
+                <div class="product-image">
+                    <img src="Productimage/productimage (15).jpeg" alt="Mystical Threads Tank Top">
+                    <div class="product-overlay">
+                        <a href="product.html?id=15" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Hanged Man Tank Top</h3>
+                <p class="price">$29.95</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 16 -->
+            <div class="product-card" data-category="longsleeve">
+                <div class="product-image">
+                    <img src="Productimage/productimage (16).jpeg" alt="Mystical Threads Long Sleeve">
+                    <div class="product-overlay">
+                        <a href="product.html?id=16" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>Death Long Sleeve</h3>
+                <p class="price">$42.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 17 -->
+            <div class="product-card" data-category="tshirt">
+                <div class="product-image">
+                    <img src="Productimage/productimage (17).jpeg" alt="Mystical Threads T-Shirt">
+                    <div class="product-overlay">
+                        <a href="product.html?id=17" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>Temperance T-Shirt</h3>
+                <p class="price">$35.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 18 -->
+            <div class="product-card" data-category="hoodie">
+                <div class="product-image">
+                    <img src="Productimage/productimage (18).jpeg" alt="Mystical Threads Hoodie">
+                    <div class="product-overlay">
+                        <a href="product.html?id=18" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Devil Hoodie</h3>
+                <p class="price">$59.99</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 19 -->
+            <div class="product-card" data-category="tank">
+                <div class="product-image">
+                    <img src="Productimage/productimage (19).jpeg" alt="Mystical Threads Tank Top">
+                    <div class="product-overlay">
+                        <a href="product.html?id=19" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Tower Tank Top</h3>
+                <p class="price">$29.95</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 20 -->
+            <div class="product-card" data-category="longsleeve">
+                <div class="product-image">
+                    <img src="Productimage/productimage (20).jpeg" alt="Mystical Threads Long Sleeve">
+                    <div class="product-overlay">
+                        <a href="product.html?id=20" class="view-btn">View Details</a>
+                    </div>
+                </div>
+                <h3>The Star Long Sleeve</h3>
+                <p class="price">$42.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pagination -->
+    <div class="pagination">
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    
+    <!-- Tarot Banner -->
+    <section class="tarot-banner">
+        <div class="tarot-banner-content">
+            <h2>Connect with Your Tarot Energy</h2>
+            <p>Discover which tarot card resonates with your spirit and find apparel that matches your unique energy.</p>
+            <a href="tarot.html" class="tarot-cta-btn">Begin Your Reading</a>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join Our Spiritual Community</h2>
+            <p>Subscribe for exclusive designs, special offers, and mystical insights.</p>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>World Trismegisto</h3>
+                <p>Spiritual apparel that connects you to your inner essence.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=tshirts">T-Shirts</a></li>
+                    <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+                    <li><a href="shop.html?category=accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="shipping.html">Shipping & Returns</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="size-guide.html">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="terms.html">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 World Trismegisto. All rights reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="e-commerce.js"></script>
+    <script src="shop.js"></script>
+</body>
+</html> 

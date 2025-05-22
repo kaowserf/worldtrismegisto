@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Checkout | World Trismegisto</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="e-commerce.css">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="card logo finall.png" alt="Mystic Threads Logo" class="nav-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="shop.html">Categories <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="shop.html?category=men"><i class="fas fa-mars category-icon"></i>Men</a>
+                    <a href="shop.html?category=women"><i class="fas fa-venus category-icon"></i>Women</a>
+                    <a href="tarot.html"><i class="fas fa-star category-icon"></i>Tarot Reading</a>
+                </div>
+            </div>
+            <a href="shop.html">Shop</a>
+            <a href="tarot.html">Tarot Reading</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="cart-account">
+            <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    
+    <!-- Checkout Process -->
+    <section class="checkout-page">
+        <div class="container">
+            <h1 class="page-title">Checkout</h1>
+            
+            <!-- Checkout Steps -->
+            <div class="checkout-steps">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Shipping</div>
+                </div>
+                <div class="step-divider"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Payment</div>
+                </div>
+                <div class="step-divider"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Confirmation</div>
+                </div>
+            </div>
+            
+            <!-- Checkout Form -->
+            <div class="checkout-grid">
+                <!-- Left Side - Form -->
+                <div class="checkout-form-container">
+                    <!-- Shipping Info Form -->
+                    <div class="form-section active" id="shipping-form">
+                        <h2>Shipping Information</h2>
+                        <form id="shipping-info-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name *</label>
+                                    <input type="text" id="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name *</label>
+                                    <input type="text" id="last-name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Street Address *</label>
+                                <input type="text" id="address" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address2">Apartment, suite, etc. (optional)</label>
+                                <input type="text" id="address2">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State/Province *</label>
+                                    <input type="text" id="state" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="zip">ZIP/Postal Code *</label>
+                                    <input type="text" id="zip" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country *</label>
+                                    <select id="country" required>
+                                        <option value="">Select Country</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="AU">Australia</option>
+                                        <!-- Add more countries as needed -->
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" required>
+                            </div>
+                            
+                            <button type="submit" class="continue-btn">Continue to Payment</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Payment Form (hidden initially) -->
+                    <div class="form-section" id="payment-form">
+                        <h2>Payment Method</h2>
+                        <form id="payment-info-form">
+                            <div class="payment-options">
+                                <div class="payment-option">
+                                    <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                                    <label for="credit-card">
+                                        <span class="radio-custom"></span>
+                                        Credit Card
+                                        <div class="card-icons">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <i class="fab fa-cc-mastercard"></i>
+                                            <i class="fab fa-cc-amex"></i>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div class="payment-option">
+                                    <input type="radio" id="paypal" name="payment-method" value="paypal">
+                                    <label for="paypal">
+                                        <span class="radio-custom"></span>
+                                        PayPal
+                                        <i class="fab fa-paypal"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div id="credit-card-fields">
+                                <div class="form-group">
+                                    <label for="card-name">Name on Card *</label>
+                                    <input type="text" id="card-name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="card-number">Card Number *</label>
+                                    <div class="card-number-input">
+                                        <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="expiry">Expiration Date *</label>
+                                        <input type="text" id="expiry" placeholder="MM/YY" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cvv">Security Code *</label>
+                                        <div class="cvv-input">
+                                            <input type="text" id="cvv" placeholder="CVV" required>
+                                            <i class="fas fa-question-circle" title="3 or 4 digit code on the back of your card"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row buttons-row">
+                                <button type="button" class="back-btn" id="back-to-shipping">Back</button>
+                                <button type="submit" class="place-order-btn">Place Order</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Confirmation Section (hidden initially) -->
+                    <div class="form-section" id="confirmation-section">
+                        <div class="confirmation-content">
+                            <div class="confirmation-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h2>Order Confirmed!</h2>
+                            <p>Thank you for your order. Your mystical journey with World Trismegisto has begun.</p>
+                            <p class="order-number">Order #: <span id="order-number">WT12345678</span></p>
+                            <p>A confirmation email has been sent to <span id="confirmation-email">email@example.com</span></p>
+                            <p>We will notify you when your items have shipped.</p>
+                            <a href="shop.html" class="continue-shopping-btn">Continue Shopping</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="order-items" id="order-items">
+                        <!-- Order items will be loaded dynamically -->
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="order-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span id="order-shipping">$0.00</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total</span>
+                        <span id="order-total">$0.00</span>
+                    </div>
+                    
+                    <!-- Promo Code -->
+                    <div class="promo-code">
+                        <input type="text" id="promo-code" placeholder="Enter promo code">
+                        <button id="apply-promo">Apply</button>
+                    </div>
+                    
+                    <div class="secure-checkout">
+                        <i class="fas fa-lock"></i> Secure Checkout
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>World Trismegisto</h3>
+                <p>Spiritual apparel that connects you to your inner essence.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=tshirts">T-Shirts</a></li>
+                    <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+                    <li><a href="shop.html?category=accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="shipping.html">Shipping & Returns</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="size-guide.html">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="terms.html">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 World Trismegisto. All rights reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="e-commerce.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html> 

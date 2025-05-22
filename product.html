@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Mystic Threads</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="e-commerce.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="product.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="card logo finall.png" alt="Mystic Threads Logo" class="nav-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <a href="shop.html">Categories <i class="fas fa-chevron-down"></i></a>
+                <div class="dropdown-menu">
+                    <a href="shop.html?category=men"><i class="fas fa-mars category-icon"></i>Men</a>
+                    <a href="shop.html?category=women"><i class="fas fa-venus category-icon"></i>Women</a>
+                    <a href="tarot.html"><i class="fas fa-star category-icon"></i>Tarot Reading</a>
+                </div>
+            </div>
+            <a href="shop.html">Shop</a>
+            <a href="tarot.html">Tarot Reading</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="cart-account">
+            <a href="account.html" class="icon-link"><i class="fas fa-user"></i></a>
+            <a href="cart.html" class="icon-link"><i class="fas fa-shopping-cart"></i> <span class="cart-count">0</span></a>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> 
+            <span class="separator">/</span> 
+            <a href="shop.html">Shop</a> 
+            <span class="separator">/</span> 
+            <span class="current-page" id="product-title">Product Name</span>
+        </div>
+    </div>
+    
+    <!-- Product Details -->
+    <section class="product-details">
+        <div class="container">
+            <div class="product-detail-grid">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="product-main-image" src="Productimage/productimage (1).jpeg" alt="Product Main Image">
+                    </div>
+                    <div class="product-thumbnails">
+                        <div class="thumbnail active">
+                            <img src="Productimage/productimage (1).jpeg" alt="Product Thumbnail 1" onclick="changeMainImage(this.src)">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="Productimage/productimage (5).jpeg" alt="Product Thumbnail 2" onclick="changeMainImage(this.src)">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="Productimage/productimage (9).jpeg" alt="Product Thumbnail 3" onclick="changeMainImage(this.src)">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="Productimage/productimage (13).jpeg" alt="Product Thumbnail 4" onclick="changeMainImage(this.src)">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1 id="product-name">The Seeker T-Shirt</h1>
+                    <p class="product-price" id="product-price">$35.00</p>
+                    <div class="product-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(24 reviews)</span>
+                    </div>
+                    <div class="product-description">
+                        <p>This mystical t-shirt features an elegant design inspired by the Seeker tarot card. Made with 100% organic cotton, it's both comfortable and environmentally friendly.</p>
+                        <p>The intricate artwork is printed using eco-friendly inks that won't fade, allowing you to connect with your spiritual essence in style.</p>
+                    </div>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label for="size-select">Size:</label>
+                            <select id="size-select" class="option-select">
+                                <option value="s">Small</option>
+                                <option value="m" selected>Medium</option>
+                                <option value="l">Large</option>
+                                <option value="xl">X-Large</option>
+                                <option value="2xl">2X-Large</option>
+                            </select>
+                        </div>
+                        
+                        <div class="option-group">
+                            <label for="color-select">Color:</label>
+                            <select id="color-select" class="option-select">
+                                <option value="black" selected>Black</option>
+                                <option value="navy">Navy</option>
+                                <option value="sage">Sage</option>
+                                <option value="sand">Sand</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn minus" onclick="updateQuantity(-1)">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button class="quantity-btn plus" onclick="updateQuantity(1)">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button id="add-to-cart-btn" class="add-to-cart-btn">Add to Cart</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                    </div>
+                    
+                    <div class="product-meta">
+                        <p><strong>SKU:</strong> <span id="product-sku">MT-TS-001</span></p>
+                        <p><strong>Category:</strong> <a href="shop.html?category=tshirt">T-Shirts</a></p>
+                        <p><strong>Tags:</strong> <a href="#">Mystic</a>, <a href="#">Tarot</a>, <a href="#">Organic</a></p>
+                    </div>
+                    
+                    <div class="product-share">
+                        <span>Share:</span>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product Tabs -->
+    <section class="product-tabs">
+        <div class="container">
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="details">Additional Information</button>
+                <button class="tab-btn" data-tab="reviews">Reviews (24)</button>
+            </div>
+            
+            <div class="tab-content" id="description" style="display: block;">
+                <h2>About this Product</h2>
+                <p>Embrace your spiritual journey with our Seeker T-Shirt, a premium apparel item that blends comfort with mystical symbolism. The Seeker represents the beginning of a journey, the quest for knowledge and understanding – a perfect representation for those who are constantly exploring their spiritual path.</p>
+                
+                <p>This t-shirt features an intricate design that draws inspiration from tarot imagery, sacred geometry, and ancient mystical symbols. The artwork is screen-printed using eco-friendly, water-based inks that resist fading even after multiple washes.</p>
+                
+                <h3>The Meaning Behind the Design</h3>
+                <p>The Seeker symbolizes the beginning of a spiritual journey, representing curiosity, potential, and the desire to explore the unknown. Wearing this symbol connects you to these qualities, serving as a reminder to remain open to new experiences and knowledge.</p>
+                
+                <h3>Sustainability</h3>
+                <p>We're committed to ethical and sustainable production. Our garments are made with 100% organic cotton, sourced from farms that use no harmful pesticides or fertilizers. The manufacturing process adheres to fair trade principles, ensuring workers receive fair wages and work in safe conditions.</p>
+            </div>
+            
+            <div class="tab-content" id="details">
+                <h2>Additional Information</h2>
+                <table class="product-attributes">
+                    <tr>
+                        <th>Material</th>
+                        <td>100% Organic Cotton, 180 GSM</td>
+                    </tr>
+                    <tr>
+                        <th>Print Method</th>
+                        <td>Water-Based Screen Printing</td>
+                    </tr>
+                    <tr>
+                        <th>Care Instructions</th>
+                        <td>Machine wash cold, inside out. Tumble dry low. Do not iron directly on print.</td>
+                    </tr>
+                    <tr>
+                        <th>Fit</th>
+                        <td>Relaxed unisex fit. Consider sizing down for a more fitted look.</td>
+                    </tr>
+                    <tr>
+                        <th>Origin</th>
+                        <td>Designed in USA, Ethically made in Portugal</td>
+                    </tr>
+                    <tr>
+                        <th>Sustainability</th>
+                        <td>GOTS Certified Organic, Fair Trade, Carbon-Neutral Shipping</td>
+                    </tr>
+                </table>
+                
+                <h3>Size Guide</h3>
+                <table class="size-guide">
+                    <thead>
+                        <tr>
+                            <th>Size</th>
+                            <th>Chest (inches)</th>
+                            <th>Length (inches)</th>
+                            <th>Sleeves (inches)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Small</td>
+                            <td>36-38</td>
+                            <td>27.5</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>Medium</td>
+                            <td>39-41</td>
+                            <td>28.5</td>
+                            <td>8.25</td>
+                        </tr>
+                        <tr>
+                            <td>Large</td>
+                            <td>42-44</td>
+                            <td>29.5</td>
+                            <td>8.5</td>
+                        </tr>
+                        <tr>
+                            <td>X-Large</td>
+                            <td>45-47</td>
+                            <td>30.5</td>
+                            <td>8.75</td>
+                        </tr>
+                        <tr>
+                            <td>2X-Large</td>
+                            <td>48-50</td>
+                            <td>31.5</td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="tab-content" id="reviews">
+                <h2>Customer Reviews</h2>
+                <div class="review-summary">
+                    <div class="average-rating">
+                        <span class="rating-value">4.5</span>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>Based on 24 reviews</p>
+                    </div>
+                    
+                    <div class="rating-bars">
+                        <div class="rating-bar">
+                            <span class="rating-label">5 Stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 75%"></div>
+                            </div>
+                            <span class="count">18</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-label">4 Stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 17%"></div>
+                            </div>
+                            <span class="count">4</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-label">3 Stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 8%"></div>
+                            </div>
+                            <span class="count">2</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-label">2 Stars</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                            </div>
+                            <span class="count">0</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-label">1 Star</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 0%"></div>
+                            </div>
+                            <span class="count">0</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reviews-list">
+                    <!-- Review 1 -->
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <h3>Sarah M.</h3>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="review-date">June 15, 2023</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>This t-shirt is absolutely beautiful! The design is even more stunning in person, and the fabric is so soft. I've washed it several times now and the print still looks brand new. Definitely worth the price for such quality.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 2 -->
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <h3>Michael T.</h3>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <span class="review-date">May 28, 2023</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>Love the design and meaning behind it. The organic cotton is super comfortable. I took off one star because I found it runs slightly large - I normally wear a medium but should have gotten a small. Otherwise perfect!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Review 3 -->
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <h3>Jade L.</h3>
+                                <div class="review-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="review-date">April 12, 2023</span>
+                            </div>
+                        </div>
+                        <div class="review-content">
+                            <p>I receive so many compliments whenever I wear this shirt! The design is subtle but meaningful, and I love telling people about the symbolism. The quality is excellent, and I appreciate the sustainable practices. Will definitely be ordering more designs!</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="write-review">
+                    <button class="write-review-btn">Write a Review</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Related Products -->
+    <section class="related-products">
+        <div class="container">
+            <h2>You May Also Like</h2>
+            <div class="product-grid">
+                <!-- Related Product 1 -->
+                <div class="product-card" data-category="tshirt">
+                    <div class="product-image">
+                        <img src="Productimage/productimage (5).jpeg" alt="The High Priestess T-Shirt">
+                        <div class="product-overlay">
+                            <a href="product.html?id=5" class="view-btn">View Details</a>
+                        </div>
+                    </div>
+                    <h3>The High Priestess T-Shirt</h3>
+                    <p class="price">$35.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Related Product 2 -->
+                <div class="product-card" data-category="tshirt">
+                    <div class="product-image">
+                        <img src="Productimage/productimage (9).jpeg" alt="The Lovers T-Shirt">
+                        <div class="product-overlay">
+                            <a href="product.html?id=9" class="view-btn">View Details</a>
+                        </div>
+                    </div>
+                    <h3>The Lovers T-Shirt</h3>
+                    <p class="price">$35.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Related Product 3 -->
+                <div class="product-card" data-category="hoodie">
+                    <div class="product-image">
+                        <img src="Productimage/productimage (2).jpeg" alt="The Flame Hoodie">
+                        <div class="product-overlay">
+                            <a href="product.html?id=2" class="view-btn">View Details</a>
+                        </div>
+                    </div>
+                    <h3>The Flame Hoodie</h3>
+                    <p class="price">$59.99</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                
+                <!-- Related Product 4 -->
+                <div class="product-card" data-category="longsleeve">
+                    <div class="product-image">
+                        <img src="Productimage/productimage (4).jpeg" alt="The Vessel Long Sleeve">
+                        <div class="product-overlay">
+                            <a href="product.html?id=4" class="view-btn">View Details</a>
+                        </div>
+                    </div>
+                    <h3>The Vessel Long Sleeve</h3>
+                    <p class="price">$42.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Join Our Spiritual Community</h2>
+            <p>Subscribe for exclusive designs, special offers, and mystical insights.</p>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mystic Threads</h3>
+                <p>Spiritual apparel that connects you to your inner essence.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=tshirts">T-Shirts</a></li>
+                    <li><a href="shop.html?category=hoodies">Hoodies</a></li>
+                    <li><a href="shop.html?category=accessories">Accessories</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="shipping.html">Shipping & Returns</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="size-guide.html">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="sustainability.html">Sustainability</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="terms.html">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Mystic Threads. All rights reserved.</p>
+            <div class="payment-icons">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="e-commerce.js"></script>
+    <script src="product.js"></script>
+    
+    <script>
+        // Change main image when clicking on thumbnails
+        function changeMainImage(src) {
+            document.getElementById('product-main-image').src = src;
+            
+            // Update active thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => {
+                if (thumb.querySelector('img').src === src) {
+                    thumb.classList.add('active');
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+        }
+        
+        // Update quantity
+        function updateQuantity(change) {
+            const quantityInput = document.getElementById('quantity');
+            let value = parseInt(quantityInput.value) + change;
+            
+            // Ensure value is at least 1
+            if (value < 1) value = 1;
+            // Ensure value is at most 10
+            if (value > 10) value = 10;
+            
+            quantityInput.value = value;
+        }
+        
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.style.display = 'none';
+                    });
+                    
+                    // Show the selected tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).style.display = 'block';
+                });
+            });
+            
+            // Get product ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            if (productId) {
+                // In a real application, this would fetch product data from a database
+                // For this demo, we'll use the product ID to simulate different products
+                fetchProductData(productId);
+            }
+            
+            // Handle add to cart button
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', function() {
+                    const productName = document.getElementById('product-name').textContent;
+                    const productPrice = document.getElementById('product-price').textContent;
+                    const quantity = parseInt(document.getElementById('quantity').value);
+                    const size = document.getElementById('size-select').value;
+                    const color = document.getElementById('color-select').value;
+                    
+                    // Update cart count in localStorage
+                    let cartCount = parseInt(localStorage.getItem('cartCount') || '0');
+                    cartCount += quantity;
+                    localStorage.setItem('cartCount', cartCount);
+                    
+                    // Update cart count display
+                    const cartCountDisplay = document.querySelector('.cart-count');
+                    if (cartCountDisplay) {
+                        cartCountDisplay.textContent = cartCount;
+                    }
+                    
+                    // Save cart item to localStorage
+                    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+                    const productImage = document.getElementById('product-main-image').src;
+                    
+                    // Check if item with same options already exists
+                    const existingItemIndex = cartItems.findIndex(item => 
+                        item.name === productName && 
+                        item.size === size && 
+                        item.color === color
+                    );
+                    
+                    if (existingItemIndex > -1) {
+                        // Increase quantity if item already exists
+                        cartItems[existingItemIndex].quantity += quantity;
+                    } else {
+                        // Add new item
+                        cartItems.push({
+                            name: productName,
+                            price: productPrice,
+                            image: productImage,
+                            quantity: quantity,
+                            size: size,
+                            color: color
+                        });
+                    }
+                    
+                    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                    
+                    // Show added to cart message
+                    showAddedToCartMessage(productName, quantity);
+                });
+            }
+        });
+        
+        // Fetch product data based on ID
+        function fetchProductData(productId) {
+            // This would normally be an API call, but for this demo we'll use a switch statement
+            let productData = {
+                name: 'The Seeker T-Shirt',
+                price: '$35.00',
+                sku: 'MT-TS-001',
+                image: 'Productimage/productimage (1).jpeg'
+            };
+            
+            // Update product details in the page
+            document.getElementById('product-name').textContent = productData.name;
+            document.getElementById('product-price').textContent = productData.price;
+            document.getElementById('product-sku').textContent = productData.sku;
+            document.getElementById('product-main-image').src = productData.image;
+            document.getElementById('product-title').textContent = productData.name;
+            document.title = `${productData.name} | Mystic Threads`;
+        }
+        
+        // Show added to cart message
+        function showAddedToCartMessage(productName, quantity) {
+            // Check if message container exists
+            let messageContainer = document.querySelector('.added-to-cart-message');
+            if (!messageContainer) {
+                messageContainer = document.createElement('div');
+                messageContainer.className = 'added-to-cart-message';
+                document.body.appendChild(messageContainer);
+            }
+            
+            messageContainer.innerHTML = `<i class="fas fa-check-circle"></i> ${quantity} × ${productName} added to cart`;
+            messageContainer.classList.add('show');
+            
+            // Hide message after 3 seconds
+            setTimeout(() => {
+                messageContainer.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html> 
