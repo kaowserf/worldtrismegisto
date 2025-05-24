@@ -176,13 +176,13 @@ function addParticleStyles() {
     document.head.appendChild(style);
 }
 
-// Mobile Menu Toggle - Improved version
+// Mobile Menu Toggle - Enhanced version
 function toggleMobileMenu() {
     const mainNav = document.querySelector('.main-nav');
     const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     
     if (!mobileMenu) {
-        // Create mobile menu if it doesn't exist
         createMobileMenu();
         return;
     }
@@ -193,12 +193,14 @@ function toggleMobileMenu() {
     // Toggle icon between bars and X
     if (mobileMenu.classList.contains('active')) {
         mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
     } else {
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = ''; // Restore scrolling
     }
 }
 
-// Create mobile menu dynamically
+// Enhanced Mobile Menu Creation
 function createMobileMenu() {
     const mainNav = document.querySelector('.main-nav');
     const leftLinks = document.querySelector('.left-links');
@@ -210,24 +212,44 @@ function createMobileMenu() {
     document.body.appendChild(mobileMenu);
     
     // Clone navigation links for mobile menu
+    const allLinks = [];
+    
     if (leftLinks) {
         const leftLinkItems = leftLinks.querySelectorAll('a, .dropdown');
-        leftLinkItems.forEach(item => {
-            const clonedItem = item.cloneNode(true);
-            mobileMenu.appendChild(clonedItem);
-        });
+        leftLinkItems.forEach(item => allLinks.push(item.cloneNode(true)));
     }
     
     if (rightLinks) {
         const rightLinkItems = rightLinks.querySelectorAll('a');
-        rightLinkItems.forEach(item => {
-            const clonedItem = item.cloneNode(true);
-            mobileMenu.appendChild(clonedItem);
-        });
+        rightLinkItems.forEach(item => allLinks.push(item.cloneNode(true)));
     }
     
-    // Initialize dropdowns in mobile menu
-    initMobileDropdowns(mobileMenu);
+    // Add links to mobile menu
+    allLinks.forEach(item => {
+        if (item.classList.contains('dropdown')) {
+            const dropdownContainer = document.createElement('div');
+            dropdownContainer.classList.add('dropdown');
+            
+            const trigger = item.querySelector('a').cloneNode(true);
+            const content = item.querySelector('.dropdown-content').cloneNode(true);
+            
+            dropdownContainer.appendChild(trigger);
+            dropdownContainer.appendChild(content);
+            mobileMenu.appendChild(dropdownContainer);
+            
+            // Add click event for dropdown
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                dropdownContainer.classList.toggle('active');
+                const icon = trigger.querySelector('i');
+                if (icon) {
+                    icon.style.transform = dropdownContainer.classList.contains('active') ? 'rotate(180deg)' : '';
+                }
+            });
+        } else {
+            mobileMenu.appendChild(item);
+        }
+    });
     
     // Toggle mobile menu after creation
     toggleMobileMenu();
@@ -236,31 +258,26 @@ function createMobileMenu() {
 // Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
     const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    
     if (!mobileMenu) return;
     
-    const mainNav = document.querySelector('.main-nav');
     const isMenuOpen = mobileMenu.classList.contains('active');
     const isClickInsideMenu = mobileMenu.contains(event.target);
     const isClickOnMenuButton = mobileMenuBtn.contains(event.target);
     
     if (isMenuOpen && !isClickInsideMenu && !isClickOnMenuButton) {
-        mainNav.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        toggleMobileMenu();
     }
 });
 
-// Close mobile menu when window is resized to desktop size
+// Close mobile menu on window resize
 window.addEventListener('resize', function() {
     const mobileMenu = document.querySelector('.mobile-menu');
     if (!mobileMenu) return;
     
-    const mainNav = document.querySelector('.main-nav');
-    
     if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
-        mainNav.classList.remove('active');
-        mobileMenu.classList.remove('active');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        toggleMobileMenu();
     }
 });
 

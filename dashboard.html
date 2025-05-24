@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Mystic Tarot Shop</title>
+    <link rel="stylesheet" href="e-commerce.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Mystic Tarot Shop" class="nav-logo">
+            </a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <div class="dropdown">
+                <button class="dropbtn">Categories <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="shop.html?category=men">Men</a>
+                    <a href="shop.html?category=women">Women</a>
+                    <a href="tarot.html">Tarot Reading</a>
+                </div>
+            </div>
+            <a href="shop.html">Shop</a>
+            <a href="tarot.html">Tarot Reading</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-icons">
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="dashboard.html" class="active">
+                <i class="fas fa-user"></i>
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <div class="dashboard-sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h3 class="user-name">Welcome back!</h3>
+            </div>
+            <nav class="dashboard-nav">
+                <a href="#profile" class="active" data-section="profile">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+                <a href="#orders" data-section="orders">
+                    <i class="fas fa-shopping-bag"></i> Orders
+                </a>
+                <a href="#addresses" data-section="addresses">
+                    <i class="fas fa-map-marker-alt"></i> Addresses
+                </a>
+                <a href="#settings" data-section="settings">
+                    <i class="fas fa-cog"></i> Settings
+                </a>
+                <a href="#" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Profile Section -->
+            <section id="profile" class="dashboard-section active">
+                <h2>Profile Information</h2>
+                <form id="profile-form" class="dashboard-form">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Date of Birth</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </form>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="dashboard-section">
+                <h2>Order History</h2>
+                <div class="orders-list">
+                    <p class="no-orders">No orders found.</p>
+                </div>
+            </section>
+
+            <!-- Addresses Section -->
+            <section id="addresses" class="dashboard-section">
+                <h2>Shipping Addresses</h2>
+                <div class="addresses-list">
+                    <button class="btn-primary add-address-btn">
+                        <i class="fas fa-plus"></i> Add New Address
+                    </button>
+                    <p class="no-addresses">No addresses saved yet.</p>
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings" class="dashboard-section">
+                <h2>Account Settings</h2>
+                <form id="settings-form" class="dashboard-form">
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" name="currentPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+                    <button type="submit" class="btn-primary">Update Password</button>
+                </form>
+
+                <div class="notification-preferences">
+                    <h3>Notification Preferences</h3>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="emailNotifications" checked>
+                            Email Notifications
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="smsNotifications">
+                            SMS Notifications
+                        </label>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="tarot.html">Tarot Reading</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Mystic Tarot Shop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="e-commerce.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html> 
